@@ -7,6 +7,10 @@
 // 1.6: Move the current node to the next node
 // 1.7: Return the previous node
 
+/**
+ * Represents a node in a singly linked list.
+ * @param {*} value - The value for the node.
+ */
 class Node {
   constructor(value) {
     this.value = value;
@@ -14,6 +18,10 @@ class Node {
   }
 }
 
+/**
+ * Represents a singly linked list.
+ * The list keeps track of its head, tail, and length.
+ */
 class LinkedList {
   constructor(value) {
     const newNode = new Node(value);
@@ -22,6 +30,11 @@ class LinkedList {
     this.length = 1;
   }
 
+  /**
+   * Adds a new node to the end of the list.
+   * @param {*} value - The value for the new node.
+   * @returns {LinkedList} The updated linked list.
+   */
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -33,6 +46,10 @@ class LinkedList {
     }
   }
 
+  /**
+   * Reverses the linked list.
+   * @returns {LinkedList} The updated linked list.
+   */
   reverse() {
     let temp = this.head;
     this.head = this.tail;
@@ -50,6 +67,9 @@ class LinkedList {
     return this;
   }
 
+  /**
+   * Prints the values of the linked list.
+   */
   printList() {
     let temp = this.head;
     while (temp !== null) {
@@ -59,6 +79,11 @@ class LinkedList {
   }
 }
 
+/**
+ * Reverses a singly linked list.
+ * @param {Node} head - The head of the linked list.
+ * @returns {Node} The new head of the reversed linked list.
+ */
 const reverseSinglyLinkedList = (head) => {
   let current = head;
   let previous = null;

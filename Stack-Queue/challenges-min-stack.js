@@ -1,6 +1,4 @@
-// Stack is a linear data structure that follows the Last In, First Out (LIFO) principle.
-// It has two main operations: push (add an element to the top) and pop (remove the top element).
-// Stacks are commonly used in algorithms like depth-first search (DFS) and in expression evaluation.
+// Min Stack
 
 /**
  * Represents a node in a stack.
@@ -15,7 +13,7 @@ class Node {
 
 /**
  * Represents a stack.
- * The stack keeps track of its first, last, and length.
+ * @param {*} value - The value for the node.
  */
 class Stack {
   constructor(value) {
@@ -38,8 +36,8 @@ class Stack {
       newNode.next = this.first;
       this.first = newNode;
       this.length++;
-      return this;
     }
+    return this;
   }
 
   /**
@@ -68,11 +66,35 @@ class Stack {
     }
     return this.first;
   }
+
+  /**
+   * Returns the minimum value in the stack.
+   * @returns {*} The minimum value or undefined if the stack is empty.
+   */
+  min() {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    let current = this.first;
+    let minValue = current.value;
+
+    while (current.next) {
+      current = current.next;
+      if (current.value < minValue) {
+        console.log(current.value, minValue);
+        minValue = current.value;
+      }
+    }
+
+    return minValue;
+  }
 }
 
-const myStack = new Stack(0);
-myStack.push(1);
-myStack.push(2);
-myStack.push(3);
+// Example usage
+const theStack = new Stack();
+theStack.push(1);
+theStack.push(2);
+theStack.push(3);
 
-console.log(myStack);
+console.log(theStack.min());
